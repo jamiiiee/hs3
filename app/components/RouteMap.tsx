@@ -58,23 +58,21 @@ export default function RouteMap({ route }: RouteMapProps) {
           strokeLinecap="square"
         />
 
-        {/* Origin point - small square */}
-        <rect
-          x={origin.x - 10}
-          y={origin.y - 10}
-          width="20"
-          height="20"
+        {/* Origin point - circle */}
+        <circle
+          cx={origin.x}
+          cy={origin.y}
+          r="8"
           fill="#f77f00"
           stroke="#1a1c2c"
           strokeWidth="2"
         />
 
-        {/* Destination point - small square */}
-        <rect
-          x={destination.x - 10}
-          y={destination.y - 10}
-          width="20"
-          height="20"
+        {/* Destination point - circle */}
+        <circle
+          cx={destination.x}
+          cy={destination.y}
+          r="8"
           fill="#9b5de5"
           stroke="#1a1c2c"
           strokeWidth="2"
