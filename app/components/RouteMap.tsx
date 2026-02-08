@@ -13,9 +13,10 @@ interface RouteMapProps {
 // Point 2: lat=60.301, lon=0.998 -> x=825.9, y=97.6
 
 // Linear regression from the reference points gives us these coefficients
+// Added +20 Y offset to correct for points appearing too high
 function latLonToSvgXY(lat: number, lon: number): { x: number; y: number } {
   const x = (lon + 12.918) * 46.87 + 174.1;
-  const y = (60.301 - lat) * 82.97 + 97.6;
+  const y = (60.301 - lat) * 82.97 + 97.6 + 20;
   return { x, y };
 }
 
@@ -57,24 +58,26 @@ export default function RouteMap({ route }: RouteMapProps) {
           strokeLinecap="square"
         />
 
-        {/* Origin point - circle */}
-        <circle
-          cx={origin.x}
-          cy={origin.y}
-          r="12"
+        {/* Origin point - small square */}
+        <rect
+          x={origin.x - 10}
+          y={origin.y - 10}
+          width="20"
+          height="20"
           fill="#f77f00"
           stroke="#1a1c2c"
-          strokeWidth="3"
+          strokeWidth="2"
         />
 
-        {/* Destination point - circle */}
-        <circle
-          cx={destination.x}
-          cy={destination.y}
-          r="12"
+        {/* Destination point - small square */}
+        <rect
+          x={destination.x - 10}
+          y={destination.y - 10}
+          width="20"
+          height="20"
           fill="#9b5de5"
           stroke="#1a1c2c"
-          strokeWidth="3"
+          strokeWidth="2"
         />
       </svg>
     </div>
