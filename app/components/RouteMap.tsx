@@ -57,26 +57,24 @@ export default function RouteMap({ route }: RouteMapProps) {
           strokeLinecap="square"
         />
 
-        {/* Origin point - pixel square */}
-        <rect
-          x={origin.x - 14}
-          y={origin.y - 14}
-          width="28"
-          height="28"
+        {/* Origin point - circle */}
+        <circle
+          cx={origin.x}
+          cy={origin.y}
+          r="12"
           fill="#f77f00"
           stroke="#1a1c2c"
-          strokeWidth="4"
+          strokeWidth="3"
         />
 
-        {/* Destination point - pixel square */}
-        <rect
-          x={destination.x - 14}
-          y={destination.y - 14}
-          width="28"
-          height="28"
+        {/* Destination point - circle */}
+        <circle
+          cx={destination.x}
+          cy={destination.y}
+          r="12"
           fill="#9b5de5"
           stroke="#1a1c2c"
-          strokeWidth="4"
+          strokeWidth="3"
         />
       </svg>
     </div>
